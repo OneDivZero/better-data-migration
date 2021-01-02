@@ -1,10 +1,10 @@
 require_relative 'lib/better_data_migration/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "better_data_migration"
+  spec.name          = "better-data-migration"
   spec.version       = BetterDataMigration::VERSION
-  spec.authors       = ["Michael Ajwani"]
-  spec.email         = ["michael.ajwani@i22.de"]
+  spec.authors       = ['OneDivZero']
+  spec.email         = []
 
   spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
