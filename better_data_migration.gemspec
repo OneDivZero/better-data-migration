@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   # spec.metadata["allowed_push_host"] = "Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = 'https://github.com/OneDivZero/better-data-migration'
+  spec.metadata["source_code_uri"] = spec.homepage
   spec.metadata["changelog_uri"] = 'https://github.com/OneDivZero/better-data-migration'
 
   # Specify which files should be added to the gem when it is released.
