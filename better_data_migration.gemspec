@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['OneDivZero']
   spec.email         = []
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
+  spec.summary       = 'Perform data-related migrations seperated from database-migrations for all rails-environments.'
+  # spec.description   = 'Write a longer description or delete this line.'
   spec.homepage      = 'https://github.com/OneDivZero/better-data-migration'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
@@ -28,6 +28,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
+
+  spec.add_dependency 'rails', '>= 5.0.0'
 
   spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'rake', '~> 12.0'
