@@ -1,0 +1,21 @@
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - bin/*
+
+Documentation:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Width: 2
+
+Metrics/LineLength:
+  Max: 120
+
+# Be realistic, sometimes a class has many lines
+Metrics/ClassLength:
+  Enabled: true
+  Max: 150
