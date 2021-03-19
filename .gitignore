@@ -2,6 +2,7 @@
 **.war
 *.rbc
 *.sassc
+*.gem
 
 .DS_STORE
 .byebug_history

@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'better_data_migration'
+
+puts "Building v#{BetterDataMigration::VERSION}"
+
+system('gem build better_data_migration.gemspec')
+system("gem install ./better-data-migration-#{BetterDataMigration::VERSION}.gem")
