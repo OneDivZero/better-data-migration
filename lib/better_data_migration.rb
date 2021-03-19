@@ -1,4 +1,4 @@
-require "better_data_migration/version"
+require 'better_data_migration/version'
 
 module BetterDataMigration
   class Error < StandardError; end
