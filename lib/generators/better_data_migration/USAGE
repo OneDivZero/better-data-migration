@@ -1,0 +1,8 @@
+Description:
+  Generates a database-migration for the table 'app_migrations'
+
+Example:
+  rails generate better_data_migration:setup
+
+  This will create e.g.:
+    db/migrate/1574325609_create_app_migrations.rb
