@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'better_data_migration/version'
 
 module BetterDataMigration
