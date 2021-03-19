@@ -36,7 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'sqlite3'
 
-  if File.exist?('UPGRADING')
-    s.post_install_message = File.read('UPGRADING')
-  end
+  s.post_install_message = File.read('UPGRADING') if File.exist?('UPGRADING')
 end

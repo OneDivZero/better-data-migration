@@ -9,7 +9,7 @@ module BetterDataMigration
 
       # Create table-migration in migration-folder
       def generate_files
-        puts "BetterDataMigration::Setup invoked"
+        puts 'BetterDataMigration::Setup invoked'
         puts "Creating table-migration for Rails#{migration_version}"
         migration_template 'table_migration.rb', "db/migrate/#{name}.rb"
       end
@@ -23,9 +23,7 @@ module BetterDataMigration
       end
 
       def migration_version
-        if rails5_and_up?
-          "[#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}]"
-        end
+        "[#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}]" if rails5_and_up?
       end
     end
   end
