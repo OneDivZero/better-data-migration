@@ -2,18 +2,30 @@ require 'rails/generators/active_record'
 
 module BetterDataMigration
   module Generators
-    #class SetupGenerator < ActiveRecord::Generators::NamedBase
     class SetupGenerator < ActiveRecord::Generators::Base
-    #class SetupGenerator < ::Rails::Generators::Base
-
       source_root File.expand_path('templates', __dir__)
 
       argument :name, type: :string, default: 'create_app_migrations'
 
-      # Create migration in project's folder
+      # Create table-migration in migration-folder
       def generate_files
-        puts "BetterDataMigration::Setup invoked\n"
+        puts "BetterDataMigration::Setup invoked"
+        puts "Creating table-migration for Rails#{migration_version}"
         migration_template 'table_migration.rb', "db/migrate/#{name}.rb"
+      end
+
+      def rails5_and_up?
+        Rails::VERSION::MAJOR >= 5
+      end
+
+      def rails61_and_up?
+        Rails::VERSION::MAJOR > 6 || (Rails::VERSION::MAJOR == 6 && Rails::VERSION::MINOR >= 1)
+      end
+
+      def migration_version
+        if rails5_and_up?
+          "[#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}]"
+        end
       end
     end
   end
