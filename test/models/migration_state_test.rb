@@ -4,7 +4,11 @@ class MigrationStateTest < ActiveSupport::TestCase
   describe 'Model' do
     before do
       @model_class = BetterDataMigration::MigrationState
-      @model = @model_class.new(name: 'test', applied: false)
+      @model = @model_class.new(name: 'Test', applied: false)
+    end
+
+    after do
+      @model.destroy
     end
 
     it 'is a valid instance' do
@@ -38,6 +42,40 @@ class MigrationStateTest < ActiveSupport::TestCase
         @model.update(applied: false)
 
         refute_empty @model_class.pending
+      end
+    end
+
+    describe 'Methods for file-handling' do
+      it 'provides a valid file-name based on id and name' do
+        @model.save
+        expected = "#{@model.id}_#{@model.name}".underscore
+        assert_equal expected, @model.file_name
+      end
+
+      it 'provides a full file-path' do
+        # TODO: test file_path
+      end
+
+      it 'returns the file-name when calling #to_s' do
+        assert_equal @model.file_name, @model.to_s
+      end
+    end
+
+    describe 'MigrationClass-Resolution' do
+      it 'returns a valid name for a related migration-class' do
+        expected = "#{@model.name}Migration"
+        assert_equal expected, @model.migration_class_name
+      end
+
+      it 'returns a migration-class when calling #to_class' do
+        assert Object.const_defined?('TestMigration')
+        assert_equal TestMigration, @model.to_class
+      end
+
+      it 'returns nil if a migration-class is unknown when calling #to_class' do
+        @model.update(name: 'Unknown')
+        refute Object.const_defined?('UnknownMigration')
+        assert_nil @model.to_class
       end
     end
   end

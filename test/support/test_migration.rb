@@ -1,0 +1,1 @@
+class TestMigration; end
