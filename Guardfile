@@ -23,6 +23,7 @@ guard :minitest do
 
   watch(%r{^test/(.*)\/?(.*)_test\.rb$})
   watch(%r{^lib/better_data_migration/models/(.+)\.rb$}) { |m| "test/models/#{m[1]}_test.rb" }
+  # TODO: lib/better_data_migration/migration.rb not watched
 
   # with Minitest::Spec
   # watch(%r{^spec/(.*)_spec\.rb$})

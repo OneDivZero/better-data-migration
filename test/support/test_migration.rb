@@ -1,1 +1,2 @@
-class TestMigration; end
+class TestMigration < BetterDataMigration::Migration
+end
