@@ -2,7 +2,7 @@ require 'test_helper'
 
 module BetterDataMigration
   class MigrationTest < ActiveSupport::TestCase
-    describe 'MigrationTest' do
+    describe 'BetterDataMigration::Migration' do
       before do
         @class = BetterDataMigration::Migration
         @instance = @class.new
