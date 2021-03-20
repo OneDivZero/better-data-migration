@@ -19,6 +19,8 @@ module BetterDataMigration
     OK_SYMBOL = "\u2705".freeze
     NOK_SYMBOL = "\u2757".freeze
 
+    MIGRATION_PATH = BetterDataMigration::MIGRATION_PATH
+
     attr_accessor :migration_class, :required
 
     scope :ordered, -> { order(:id) }
@@ -40,7 +42,9 @@ module BetterDataMigration
     end
 
     def file_path
-      App::Migrator::PATH.join("#{file_name}.rb")
+      # PATH = Rails.root.join('db/data').freeze
+      # App::Migrator::PATH.join("#{file_name}.rb")
+      MIGRATION_PATH + "/#{file_name}.rb"
     end
 
     def migration_class_name

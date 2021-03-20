@@ -52,8 +52,12 @@ class MigrationStateTest < ActiveSupport::TestCase
         assert_equal expected, @model.file_name
       end
 
+      # TODO: Origin implementation uses Rails.root.join
       it 'provides a full file-path' do
-        # TODO: test file_path
+        @model.save
+        expected = "db/data/#{@model.id}_#{@model.name.underscore}.rb"
+
+        assert_equal expected, @model.file_path
       end
 
       it 'returns the file-name when calling #to_s' do
