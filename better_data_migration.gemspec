@@ -38,7 +38,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-alias'
   spec.add_development_dependency 'pry-byebug'
-  # spec.add_development_dependency 'rails'
   spec.add_development_dependency 'rake', '~> 12.0'
   # Required: "can't use Pry without Readline or a compatible library"
   spec.add_development_dependency 'rb-readline'
