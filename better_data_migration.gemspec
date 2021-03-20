@@ -31,8 +31,17 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 5.0.0'
 
-  spec.add_development_dependency 'minitest', '~> 5.0'
+  spec.add_development_dependency 'minitest-focus'
+  spec.add_development_dependency 'minitest-rails'
+  # Drops in Minitest::Spec superclass for ActiveSupport::TestCase
+  # spec.add_development_dependency 'minitest-spec-rails'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'pry-alias'
+  spec.add_development_dependency 'pry-byebug'
+  # spec.add_development_dependency 'rails'
   spec.add_development_dependency 'rake', '~> 12.0'
+  # Required: "can't use Pry without Readline or a compatible library"
+  spec.add_development_dependency 'rb-readline'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'sqlite3'
 
