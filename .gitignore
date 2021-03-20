@@ -41,6 +41,7 @@ yarn-debug.log*
 /features_report.html
 /gems
 /log/*
+/lib/legacy/*
 /node_modules
 /pkg/
 /public/assets/
