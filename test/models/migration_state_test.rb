@@ -80,7 +80,7 @@ module BetterDataMigration
         before do
           @model.save
 
-          @test_migration_file_path = gem_root + '/test/support/test_migration.rb'
+          @test_migration_file_path = "#{gem_root}/test/support/test_migration.rb"
           FileUtils.cp(@test_migration_file_path, @model.file_path)
         end
 
@@ -142,7 +142,7 @@ module BetterDataMigration
         before do
           @model.save
 
-          @test_migration_file_path = gem_root + '/test/support/test_migration.rb'
+          @test_migration_file_path = "#{gem_root}/test/support/test_migration.rb"
           FileUtils.cp(@test_migration_file_path, @model.file_path)
         end
 
