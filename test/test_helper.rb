@@ -11,3 +11,7 @@ require 'better_data_migration'
 require 'minitest/autorun'
 require 'minitest/focus'
 require 'minitest/spec'
+
+ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ':memory:'
+
+load File.dirname(__FILE__) + '/schema.rb'
