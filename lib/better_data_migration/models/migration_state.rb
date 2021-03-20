@@ -19,9 +19,12 @@ module BetterDataMigration
     OK_SYMBOL = "\u2705".freeze
     NOK_SYMBOL = "\u2757".freeze
 
-    MIGRATION_PATH = BetterDataMigration::MIGRATION_PATH
+    MIGRATION_PATH = BetterDataMigration.migration_files_path
 
     attr_accessor :migration_class, :required
+
+    # TODO: Better use AR-errors instead of these instance-vars
+    attr_reader :name_error, :load_error
 
     scope :ordered, -> { order(:id) }
     scope :migrated, -> { where(applied: true).ordered }
@@ -51,9 +54,14 @@ module BetterDataMigration
       "#{name}Migration"
     end
 
+    # TODO: Get rid of 'puts' in model-class
     def to_class
       @migration_class ||= migration_class_name.constantize
-    rescue NameError
+    rescue NameError => e
+      @name_error = true
+
+      raise e unless e.missing_name.eql?(migration_class_name)
+
       puts "WARNING: Migration-Class not found '#{migration_class_name}'"
     end
 
@@ -61,6 +69,7 @@ module BetterDataMigration
       file_name
     end
 
+    # TODO: Get rid of 'puts' in model-class
     def require_migration
       @required ||= require file_path
 
@@ -68,7 +77,9 @@ module BetterDataMigration
 
       raise MigrationNotFoundError
     rescue LoadError => _e
-      puts "WARNING: Migration-File not found #{file_path}"
+      @load_error = true
+
+      puts "WARNING: Migration-File not found '#{file_path}'"
     end
 
     def description
@@ -87,6 +98,7 @@ module BetterDataMigration
       !unattended?
     end
 
+    # TODO: Too much presentaion-logic in this model!
     def unattended_value
       unattended? ? 'Y' : 'N'
     end
