@@ -11,6 +11,7 @@ require 'better_data_migration'
 require 'minitest/autorun'
 require 'minitest/focus'
 require 'minitest/spec'
+require 'minitest/pride'
 
 ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ':memory:'
 

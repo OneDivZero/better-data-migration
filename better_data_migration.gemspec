@@ -31,6 +31,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 5.0.0'
 
+  spec.add_development_dependency 'guard'
+  spec.add_development_dependency 'guard-minitest'
   spec.add_development_dependency 'minitest-focus'
   spec.add_development_dependency 'minitest-rails'
   # Drops in Minitest::Spec superclass for ActiveSupport::TestCase
