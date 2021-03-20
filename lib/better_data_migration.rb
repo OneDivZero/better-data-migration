@@ -9,6 +9,7 @@ require 'active_support'
 require 'better_data_migration/version'
 require 'better_data_migration/config'
 require 'better_data_migration/migration'
+require 'better_data_migration/service'
 require 'better_data_migration/models/migration_state'
 
 module BetterDataMigration

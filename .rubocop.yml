@@ -1,14 +1,18 @@
 AllCops:
   TargetRubyVersion: 2.5
   Exclude:
-    - bin/*
+    - 'bin/*'
     - 'vendor/**/*'
+    - 'Guardfile'
 
 Documentation:
   Enabled: false
 
 Layout/IndentationWidth:
   Width: 2
+
+Layout/LeadingCommentSpace:
+  Enabled: false
 
 Metrics/LineLength:
   Max: 120
